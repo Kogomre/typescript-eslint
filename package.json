@@ -1,0 +1,76 @@
+{
+  "name": "eslint-flat",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "git@github.com:Kogomre/typescript-eslint.git",
+  "author": "kogomre",
+  "license": "",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "cross-env NODE_ENV=production next start",
+    "analyze": "cross-env ANALYZE=true yarn build",
+    "prettier:fix": "prettier --write src/**/*.{ts,tsx}",
+    "lint": "eslint --debug src --ext .ts,.tsx",
+    "lint:fix": "eslint --debug src --ext .ts,.tsx --fix",
+    "lint:fix:nodebug": "eslint src --ext .ts,.tsx --fix",
+    "type-check": "tsc -p tsconfig.json",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.64.0",
+    "axios": "1.7.9",
+    "next": "15.1.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "zustand": "5.0.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "9.18.0",
+    "@next/bundle-analyzer": "15.1.4",
+    "@tanstack/react-query-devtools": "5.17.10",
+    "@types/eslint": "9.6.1",
+    "@types/node": "22.10.5",
+    "@types/react": "19.0.5",
+    "@types/react-dom": "19.0.3",
+    "autoprefixer": "10.4.20",
+    "classnames": "2.5.1",
+    "cross-env": "7.0.3",
+    "cssnano": "7.0.6",
+    "cssnano-preset-default": "7.0.6",
+    "eslint": "9.18.0",
+    "eslint-config-next": "15.1.4",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-import-resolver-typescript": "3.7.0",
+    "eslint-plugin-eslint-comments": "3.2.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-prettier": "5.2.1",
+    "eslint-plugin-react": "7.37.3",
+    "eslint-plugin-react-hooks": "5.1.0",
+    "eslint-webpack-plugin": "4.2.0",
+    "globals": "15.14.0",
+    "husky": "9.1.7",
+    "jiti": "2.4.2",
+    "lint-staged": "15.3.0",
+    "postcss": "8.4.49",
+    "prettier": "3.4.2",
+    "prettier-plugin-tailwindcss": "0.6.9",
+    "tailwindcss": "3.4.17",
+    "tsconfig-paths-webpack-plugin": "4.2.0",
+    "typescript": "5.7.3",
+    "typescript-eslint": "8.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --ext .ts --ext .tsx"
+    ]
+  }
+}
