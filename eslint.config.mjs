@@ -8,19 +8,19 @@ import eslintReact from 'eslint-plugin-react';
 
 const compat = new FlatCompat();
 
-export default [
+export default tseslint.config(
   eslint.configs.recommended,
-  ...tseslint.configs.recommended,
+  tseslint.configs.recommended,
   eslintImport.flatConfigs.recommended,
-  eslintReact.configs.recommended,
-  ...compat.extends('plugin:prettier/recommended'),
-  ...compat.extends('plugin:react-hooks/recommended'),
-  ...compat.extends('plugin:eslint-comments/recommended'),
-  ...compat.extends('plugin:prettier/recommended'),
-  ...compat.extends('plugin:@next/next/recommended'),
-  ...compat.extends('plugin:import/errors'),
-  ...compat.extends('plugin:import/warnings'),
-  ...compat.extends('plugin:import/typescript'),
+  eslintReact.configs.flat.recommended,
+  compat.extends('plugin:prettier/recommended'),
+  compat.extends('plugin:react-hooks/recommended'),
+  compat.extends('plugin:eslint-comments/recommended'),
+  compat.extends('plugin:@next/next/recommended'),
+
+  eslintImport.flatConfigs.errors,
+  eslintImport.flatConfigs.warnings,
+  eslintImport.flatConfigs.typescript,
   {
     languageOptions: {
       globals: {
@@ -39,7 +39,6 @@ export default [
       },
     },
     plugins: {
-      '@typescript-eslint': tseslint.plugin,
       'jsx-a11y': eslintJsxA11y,
     },
     settings: {
@@ -126,4 +125,4 @@ export default [
     },
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
   },
-];
+);
